@@ -78,6 +78,7 @@ class SwaggerApiView(APIDocView):
 
     def get(self, request, path):
         apis = self.get_api_for_resource(path)
+        print path
         generator = DocumentationGenerator()
 
         return Response({
