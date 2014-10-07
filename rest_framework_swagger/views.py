@@ -81,6 +81,8 @@ class SwaggerApiView(APIDocView):
         generator = DocumentationGenerator()
 
         return Response({
+            'apiVersion': SWAGGER_SETTINGS.get('api_version', ''),
+            'swaggerVersion': '1.2',
             'apis': generator.generate(apis),
             'models': generator.get_models(apis),
             'basePath': self.api_full_uri.rstrip('/'),
